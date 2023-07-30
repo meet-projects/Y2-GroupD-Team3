@@ -16,7 +16,7 @@ config = {
   "appId": "1:768993213259:web:4d0a643104df59f31686ce",
   "measurementId": "G-LXE30WBPJ2",
   "databaseURL": "https://group3-5e860-default-rtdb.europe-west1.firebasedatabase.app/"
-}
+} 
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
