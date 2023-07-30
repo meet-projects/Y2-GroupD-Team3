@@ -7,12 +7,25 @@ app.config['SECRET_KEY'] = 'super-secret-key'
 
 #Code goes below here
 
+config = {
+  "apiKey": "AIzaSyCq-RX24uLwLBm_N61kLEB8jLEnxyvaWO4",
+  "authDomain": "group3-5e860.firebaseapp.com",
+  "projectId": "group3-5e860",
+  "storageBucket": "group3-5e860.appspot.com",
+  "messagingSenderId": "768993213259",
+  "appId": "1:768993213259:web:4d0a643104df59f31686ce",
+  "measurementId": "G-LXE30WBPJ2",
+  "databaseURL": "https://group3-5e860-default-rtdb.europe-west1.firebasedatabase.app/"
+}
+
 @app.route('/', methods=['GET', 'POST'])
 def home():
     return render_template("home.html")
 
 
 #Code goes above here
-
+firebase = pyrebase.initialize_app(config)
+auth = firebase.auth()
+db = firebase.database()
 if __name__ == '__main__':
     app.run(debug=True)
