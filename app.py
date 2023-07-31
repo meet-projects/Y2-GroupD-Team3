@@ -34,7 +34,7 @@ def co():
         interests = request.form['interests']
         availability = request.form['availability']
         try:
-            login_session['user'] = auth.create_user_with_email(email)
+            login_session['user'] = auth.get_user_by_phone_number(phone_number)
             user = {"full_name" : full_name, "email" : email, "phone" : phone, "disability" : disability, "experience" : experience, "interests" : interests, "availability" : availability}
             UID = login_session['user']['localId']
             db.child("Users").child(UID).set(user)
