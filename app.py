@@ -34,13 +34,13 @@ def co():
         interests = request.form['interests']
         availability = request.form['availability']
         try:
-            login_session['user'] = auth.get_user_by_phone_number(phone_number)
             user = {"full_name" : full_name, "email" : email, "phone" : phone, "disability" : disability, "experience" : experience, "interests" : interests, "availability" : availability}
             UID = login_session['user']['localId']
-            db.child("Users").child(UID).set(user)
+            db.child("Co").child(UID).set(user)
             return redirect(url_for('home'))
         except:
             error = "Authentication failed"
+            print(error)
     return render_template("co.html")
 
 
