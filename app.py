@@ -22,8 +22,8 @@ config = {
 def home():
     return render_template("home.html")
 
-# @app.route('/co', methods=['GET', 'POST'])
-# def co():
+@app.route('/co', methods=['GET', 'POST'])
+def co():
 #     error = ""
 #     if request.method == 'POST':
 #         full_name = request.form['full_name']
@@ -41,7 +41,7 @@ def home():
 #             return redirect(url_for('home'))
 #         except:
 #             error = "Authentication failed"
-#     return render_template("co.html")
+    return render_template("co.html")
 
 
 #Code goes above here
