@@ -42,6 +42,45 @@ def co():
             error = "Authentication failed"
     return render_template("co.html")
 
+@app.route('/garden', methods=['GET', 'POST'])
+def garden():
+    error = ""
+    if request.method == 'POST':
+        full_name = request.form['full_name']
+        email = request.form['email']
+        phone = request.form['phone']
+        disability = request.form['disability']
+        experience = request.form['experience']
+        interests = request.form['interests']
+        availability = request.form['availability']
+        try:
+            user = {"full_name" : full_name, "email" : email, "phone" : phone, "disability" : disability, "experience" : experience, "interests" : interests, "availability" : availability}
+            UID = login_session['user']['localId']
+            db.child("Garden").child(UID).set(user)
+            return redirect(url_for('home'))
+        except:
+            error = "Authentication failed"
+    return render_template("garden.html")
+
+@app.route('/nitting', methods=['GET', 'POST'])
+def nitting():
+    error = ""
+    if request.method == 'POST':
+        full_name = request.form['full_name']
+        email = request.form['email']
+        phone = request.form['phone']
+        disability = request.form['disability']
+        experience = request.form['experience']
+        interests = request.form['interests']
+        availability = request.form['availability']
+        try:
+            user = {"full_name" : full_name, "email" : email, "phone" : phone, "disability" : disability, "experience" : experience, "interests" : interests, "availability" : availability}
+            UID = login_session['user']['localId']
+            db.child("Nitting").child(UID).set(user)
+            return redirect(url_for('home'))
+        except:
+            error = "Authentication failed"
+    return render_template("nitting.html")
 
 #Code goes above here
 firebase = pyrebase.initialize_app(config)
