@@ -40,7 +40,6 @@ def co():
             return redirect(url_for('home'))
         except:
             error = "Authentication failed"
-            print(error)
     return render_template("co.html")
 
 
