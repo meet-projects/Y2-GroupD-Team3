@@ -22,64 +22,58 @@ config = {
 def home():
     return render_template("home.html")
 
-@app.route('/co', methods=['GET', 'POST'])
-def co():
+@app.route('/signin', methods=['GET', 'POST'])
+def signin():
+    error = ""
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        try:
+            login_session['user'] = auth.sign_in_with_email_and_password(email, password)
+            return redirect(url_for('home'))
+        except:
+            error = "Authentication failed"
+    return render_template("signin.html")
+
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
     error = ""
     if request.method == 'POST':
         full_name = request.form['full_name']
         email = request.form['email']
         phone = request.form['phone']
+        password = request.form['password']
         disability = request.form['disability']
         experience = request.form['experience']
         interests = request.form['interests']
         availability = request.form['availability']
         try:
-            user = {"full_name" : full_name, "email" : email, "phone" : phone, "disability" : disability, "experience" : experience, "interests" : interests, "availability" : availability}
+            login_session['user'] = auth.create_user_with_email_and_password(email, password)
+            user = {"full_name" : full_name, "username" : username, "bio" : bio}
             UID = login_session['user']['localId']
-            db.child("Co").child(UID).set(user)
+            db.child("Users").child(UID).set(user)
             return redirect(url_for('home'))
         except:
             error = "Authentication failed"
+    return render_template("signup.html")
+
+@app.route('/signout')
+def signout():
+    login_session['user'] = None
+    auth.current_user = None
+    return redirect(url_for('home'))
+
+@app.route('/co', methods=['GET', 'POST'])
+def co():
     return render_template("co.html")
 
 @app.route('/garden', methods=['GET', 'POST'])
 def garden():
-    error = ""
-    if request.method == 'POST':
-        full_name = request.form['full_name']
-        email = request.form['email']
-        phone = request.form['phone']
-        disability = request.form['disability']
-        experience = request.form['experience']
-        interests = request.form['interests']
-        availability = request.form['availability']
-        try:
-            user = {"full_name" : full_name, "email" : email, "phone" : phone, "disability" : disability, "experience" : experience, "interests" : interests, "availability" : availability}
-            UID = login_session['user']['localId']
-            db.child("Garden").child(UID).set(user)
-            return redirect(url_for('home'))
-        except:
-            error = "Authentication failed"
     return render_template("garden.html")
 
 @app.route('/nitting', methods=['GET', 'POST'])
 def nitting():
-    error = ""
-    if request.method == 'POST':
-        full_name = request.form['full_name']
-        email = request.form['email']
-        phone = request.form['phone']
-        disability = request.form['disability']
-        experience = request.form['experience']
-        interests = request.form['interests']
-        availability = request.form['availability']
-        try:
-            user = {"full_name" : full_name, "email" : email, "phone" : phone, "disability" : disability, "experience" : experience, "interests" : interests, "availability" : availability}
-            UID = login_session['user']['localId']
-            db.child("Nitting").child(UID).set(user)
-            return redirect(url_for('home'))
-        except:
-            error = "Authentication failed"
     return render_template("nitting.html")
 
 #Code goes above here
