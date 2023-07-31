@@ -24,23 +24,23 @@ def home():
 
 @app.route('/co', methods=['GET', 'POST'])
 def co():
-#     error = ""
-#     if request.method == 'POST':
-#         full_name = request.form['full_name']
-#         email = request.form['email']
-#         phone = request.form['phone']
-#         disability = request.form['disability']
-#         experience = request.form['experience']
-#         interests = request.form['interests']
-#         availability = request.form['availability']
-#         try:
-#             login_session['user'] = auth.create_user_with_email(email)
-#             user = {"full_name" : full_name, "email" : email, "phone" : phone, "disability" : disability, "experience" : experience, "interests" : interests, "availability" : availability}
-#             UID = login_session['user']['localId']
-#             db.child("Users").child(UID).set(user)
-#             return redirect(url_for('home'))
-#         except:
-#             error = "Authentication failed"
+    error = ""
+    if request.method == 'POST':
+        full_name = request.form['full_name']
+        email = request.form['email']
+        phone = request.form['phone']
+        disability = request.form['disability']
+        experience = request.form['experience']
+        interests = request.form['interests']
+        availability = request.form['availability']
+        try:
+            login_session['user'] = auth.create_user_with_email(email)
+            user = {"full_name" : full_name, "email" : email, "phone" : phone, "disability" : disability, "experience" : experience, "interests" : interests, "availability" : availability}
+            UID = login_session['user']['localId']
+            db.child("Users").child(UID).set(user)
+            return redirect(url_for('home'))
+        except:
+            error = "Authentication failed"
     return render_template("co.html")
 
 
