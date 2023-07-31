@@ -22,10 +22,6 @@ config = {
 def home():
     return render_template("home.html")
 
-@app.route('/comments', methods=['GET', 'POST'])
-def go():
-    return render_template("comments.html")
-
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
     error = ""
