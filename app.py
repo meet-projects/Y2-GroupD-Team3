@@ -22,6 +22,10 @@ config = {
 def home():
     return render_template("home.html")
 
+@app.route('/co', methods=['GET', 'POST'])
+def co():
+    return render_template("co.html")
+
 
 #Code goes above here
 firebase = pyrebase.initialize_app(config)
