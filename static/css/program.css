@@ -1,0 +1,50 @@
+body, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+}
+
+h2 {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #FFA500; 
+  color: #FFF; 
+}
+
+p {
+  text-align: center;
+  padding: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #FFA500; 
+  color: #FFF; 
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease; 
+}
+
+button:hover {
+  background-color: #FF8C00;
+}
+
+a {
+  text-decoration: none;
+  color: #FFA500; 
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
