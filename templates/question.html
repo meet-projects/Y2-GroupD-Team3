@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple CSS Form</title>
+    <style>
+        /* Reset some default styles to ensure consistency */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        /* Form container */
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form heading */
+        .form-heading {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Form fields */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        /* Submit button */
+        .submit-btn {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        /* Additional styling for the submit button on hover */
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Disclaimer text */
+        .disclaimer {
+            font-size: 12px;
+            color: #888;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <div class="form-heading">Add a comment</div>
+        <form method="post" action="/chat">
+            <div class="form-group">
+                <label for="fullname">title off comment</label>
+                <input type="text" id="fullname" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">text</label>
+                <input type="text" id="message" name="message" rows="4">
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+
+            <div class="disclaimer">
+                By submitting this form, you are adding a question.
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -118,6 +118,22 @@ def volunteers2():
             error = "Authentication failed"
     return render_template("volunteers.html")
 
+@app.route('/chat', methods=['GET', 'POST'])
+def chat():
+    if request.method == 'POST':
+        email = request.form['name']
+        fullna = request.form['message']
+        try:
+            que = {"Question": email, "text": fullna, "comments": []}
+            db.child("questions").push(que)
+            return render_template("chat.html")
+        except:
+            return render_template("chat.html")
+    else:
+
+        return render_template("chat.html")
+
+
 #Code goes above here
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
