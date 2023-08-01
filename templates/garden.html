@@ -8,12 +8,34 @@
 </head>
 <body>
   <h2>Sign Up - Program for integrate into gardening job</h2>
-  <p>Please fill in the form below to join our program and explore job opportunities:</p>
+  <p>Please fill press JOIN below to explore job gardening opportunities:</p>
+  
   {% if user == None %}
      <center><a href="/signup"><button>JOIN</button></a></center>
   {% else %}
 
-    <center><a href="/"><button onclick="Join()">JOIN</button></a></center>
+    <center><a href="/"><button onclick="Join()"><style>
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>JOIN</button></a></center>
      <script>
   
 function Join() {
