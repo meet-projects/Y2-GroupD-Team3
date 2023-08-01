@@ -66,8 +66,9 @@
 </head>
 
 <body>
+{%for i in po%}
     <div class="text-container">
-        <div class="section-heading">Welcome to Our Website</div>
+        <div class="section-heading">{{}}</div>
         <div class="sub-heading">About Us</div>
         <div class="paragraph">
             <span class="highlight">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Vivamus
@@ -93,6 +94,7 @@
             click to add a comment: <a class="link" href="/comment">add</a>
         </div>
     </div>
+{%endfor%}
 </body>
 
 </html>
