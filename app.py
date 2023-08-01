@@ -155,10 +155,10 @@ def chat():
 
         return render_template("chat.html")
 
-# @app.route('/qews', methods=['GET', 'POST'])
-# def qwes():
-#     twe = db.child("questions").get().val()
-#         return render_template("quea.html", p=twe)
+@app.route('/qews', methods=['GET', 'POST'])
+def qwes():
+    twe = db.child("questions").get().val()
+    return render_template("quea.html", p=twe)
 
 #Code goes above here
 firebase = pyrebase.initialize_app(config)
