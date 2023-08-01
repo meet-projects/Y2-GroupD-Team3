@@ -5,8 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shekulo Tov</title>
   <link rel="stylesheet" type="text/css" href="static/css/program.css">
+  <link rel="stylesheet" type="text/css" href="static/css/style4.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 </head>
 <body>
+  <div class="topnav" id="myTopnav">
+  <a href="/" class="active">Home</a>
+  <div class="dropdown">
+    <button class="dropbtn">Questions 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/add_question">Ask a question</a>
+      <a href="/questions">View questions</a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">vocotional trainings 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/co">cooking</a>
+      <a href="/garden">gardenning</a>
+      <a href="/knitting">knitting</a>
+    </div>
+  </div> 
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+  <h1 id="one">Teaching videos<h1>
+  <iframe width="530" height="315" src="https://www.youtube.com/embed/4y16wIDkE8Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+  <iframe width="530" height="315" src="https://www.youtube.com/embed/7DsUqnk5L-g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+  <iframe width="530" height="315" src="https://www.youtube.com/embed/7kMX3emSnQA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+  <iframe width="530" height="315" src="https://www.youtube.com/embed/D0TCsA9MC50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+  <iframe width="530" height="315" src="https://www.youtube.com/embed/oAmeY7rpiXY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+  <iframe width="530" height="315" src="https://www.youtube.com/embed/BWG9QjgBDeI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+  <iframe width="530" height="315" src="https://www.youtube.com/embed/QI8Lo4bdOSg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+  <iframe width="530" height="315" src="https://www.youtube.com/embed/LpW4EzHcCrs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+  <iframe width="530" height="315" src="https://www.youtube.com/embed/4LijN-TxwCQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
   <h2>Sign Up - Program for integrate into gardening job</h2>
   <p>Please fill press JOIN below to explore job gardening opportunities:</p>
   {% if user == None %}

@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nice Text Display</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style4.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
-            margin: 20px;
         }
 
         .text-container {
@@ -66,8 +67,43 @@
 </head>
 
 <body>
+  <div class="topnav" id="myTopnav">
+  <a href="/" class="active">Home</a>
+  <div class="dropdown">
+    <button class="dropbtn">Questions 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/add_question">Ask a question</a>
+      <a href="/questions">View questions</a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">vocotional trainings 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/co">cooking</a>
+      <a href="/garden">gardenning</a>
+      <a href="/knitting">knitting</a>
+    </div>
+  </div> 
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
 {%for i in p%}
-    <div class="text-container">
+    <div class="text-container" style="margin-top: 2%;">
         <div class="section-heading">{{p[i]["Question"]}}</div>
         <div class="sub-heading">{{p[i]["text"]}}</div>
         

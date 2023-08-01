@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple CSS Form</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style4.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <style>
         /* Reset some default styles to ensure consistency */
         * {
@@ -17,7 +19,6 @@
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             line-height: 1.6;
-            margin: 20px;
         }
 
         /* Form container */
@@ -86,10 +87,48 @@
     </style>
 </head>
 
-<body>
-    <div class="form-container">
+<body style="padding: 0px 0px;">
+
+
+  <div class="topnav" id="myTopnav">
+  <a href="/" class="active">Home</a>
+  <div class="dropdown">
+    <button class="dropbtn">Questions 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/add_question">Ask a question</a>
+      <a href="/questions">View questions</a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">vocotional trainings 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/co">cooking</a>
+      <a href="/garden">gardenning</a>
+      <a href="/knitting">knitting</a>
+    </div>
+  </div> 
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>  
+
+
+    <div class="form-container" style="margin-top: 5%;">
         <div class="form-heading">Add a question</div>
-        <form method="post" action="/chat">
+        <form method="post" action="/add_question">
             <div class="form-group">
                 <label for="fullname">name of question</label>
                 <input type="text" id="fullname" name="name" required>
@@ -97,7 +136,7 @@
 
             <div class="form-group">
                 <label for="message">specify the problem</label>
-                <input type="text" id="message" name="message" rows="4">
+                <input  id="message" name="message" rows="4">
             </div>
 
             <button type="submit" class="submit-btn">Submit</button>

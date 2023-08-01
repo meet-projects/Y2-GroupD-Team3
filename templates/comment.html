@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/style4.css">
     <title>Simple CSS Form</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         /* Reset some default styles to ensure consistency */
         * {
@@ -17,7 +20,6 @@
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             line-height: 1.6;
-            margin: 20px;
         }
 
         /* Form container */
@@ -87,7 +89,44 @@
 </head>
 
 <body>
-    <div class="form-container">
+
+  <div class="topnav" id="myTopnav">
+  <a href="/" class="active">Home</a>
+  <div class="dropdown">
+    <button class="dropbtn">Questions 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/add_question">Ask a question</a>
+      <a href="/questions">View questions</a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">vocotional trainings 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/co">cooking</a>
+      <a href="/garden">gardenning</a>
+      <a href="/knitting">knitting</a>
+    </div>
+  </div> 
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>  
+
+
+    <div class="form-container" style="margin-top: 5%;">
         <div class="form-heading">Add a comment</div>
         <form method="post" action="/comment/{{i}}">
 
