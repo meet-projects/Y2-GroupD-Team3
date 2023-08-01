@@ -85,6 +85,25 @@ def nitting():
         user = None
     return render_template("nitting.html", user=user)
 
+@app.route('/volunteers', methods=['GET', 'POST'])
+def volunteers():
+    error = ""
+    if request.method == 'POST':
+        full_name = request.form['full_name']
+        email = request.form['email']
+        password = request.form['password']
+        program = request.form['program']
+        availability = request.form['availability']
+        try:
+            login_session['user'] = auth.create_user_with_email_and_password(email, password)
+            user = {"full_name" : full_name, "email" : email, "password" : password, "program" : program, "availability" : availability}
+            UID = login_session['user']['localId']
+            db.child("volunteers").child(UID).set(user)
+            return redirect(url_for('home'))
+        except:
+            error = "Authentication failed"
+    return render_template("volunteers.html")
+
 #Code goes above here
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
