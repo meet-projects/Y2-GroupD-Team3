@@ -65,8 +65,11 @@ def signout():
 
 @app.route('/co', methods=['GET', 'POST'])
 def co():
-
-    return render_template("co.html")
+    if 'user' in login_session:
+        user=login_session['user']
+    else:
+        user = None
+    return render_template("co.html", user=user)
 
 @app.route('/garden', methods=['GET', 'POST'])
 def garden():
@@ -74,12 +77,15 @@ def garden():
         user=login_session['user']
     else:
         user = None
-    text = "An Email just sent to you"
-    return render_template("garden.html", user=user, text=text)
+    return render_template("garden.html", user=user)
 
 @app.route('/nitting', methods=['GET', 'POST'])
 def nitting():
-    return render_template("nitting.html")
+    if 'user' in login_session:
+        user=login_session['user']
+    else:
+        user = None
+    return render_template("nitting.html", user=user)
 
 #Code goes above here
 firebase = pyrebase.initialize_app(config)
