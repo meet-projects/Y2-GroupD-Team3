@@ -38,21 +38,22 @@ def signin():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    error = ""
-    if request.method == 'POST':
-        full_name = request.form['full_name']
-        email = request.form['email']
-        password = request.form['password']
-        disability = request.form['disability']
-        availability = request.form['availability']
-        try:
-            login_session['user'] = auth.create_user_with_email_and_password(email, password)
-            user = {"full_name" : full_name, "email" : email, "password" : password, "disability" : disability, "availability" : availability}
-            UID = login_session['user']['localId']
-            db.child("Users").child(UID).set(user)
-            return redirect(url_for('home'))
-        except:
-            error = "Authentication failed"
+    if login_session['user'] == None:
+        error = ""
+        if request.method == 'POST':
+            full_name = request.form['full_name']
+            email = request.form['email']
+            password = request.form['password']
+            disability = request.form['disability']
+            availability = request.form['availability']
+            try:
+                login_session['user'] = auth.create_user_with_email_and_password(email, password)
+                user = {"full_name" : full_name, "email" : email, "password" : password, "disability" : disability, "availability" : availability}
+                UID = login_session['user']['localId']
+                db.child("Users").child(UID).set(user)
+                return redirect(url_for('home'))
+            except:
+                error = "Authentication failed"
     return render_template("signup.html")
 
 @app.route('/signout')
@@ -87,23 +88,27 @@ def nitting():
 
 @app.route('/volunteers', methods=['GET', 'POST'])
 def volunteers():
-    error = ""
-    UID_user = login_session['user']['localId']
-    if request.method == 'POST' and UID_user!=None:
-        full_name = request.form['full_name']
-        email = request.form['email']
-        password = request.form['password']
-        program = request.form['program']
-        availability = request.form['availability']
-        try:
-            login_session['user'] = auth.create_user_with_email_and_password(email, password)
-            user = {"full_name" : full_name, "email" : email, "password" : password, "program" : program, "availability" : availability}
-            UID = login_session['user']['localId']
-            db.child("Volunteers").child(UID).set(user)
-            return redirect(url_for('home'))
-        except:
-            error = "Authentication failed"
     return render_template("volunteers.html")
+
+@app.route('/volunteers_sign', methods=['GET', 'POST'])
+def volunteers_sign():
+    error = ""
+    if login_session['user'] == None:
+        if request.method == 'POST':
+            full_name = request.form['full_name']
+            email = request.form['email']
+            password = request.form['password']
+            program = request.form['program']
+            availability = request.form['availability']
+            try:
+                login_session['user'] = auth.create_user_with_email_and_password(email, password)
+                user = {"full_name" : full_name, "email" : email, "password" : password, "program" : program, "availability" : availability}
+                UID = login_session['user']['localId']
+                db.child("Volunteers").child(UID).set(user)
+                return redirect(url_for('volunteers'))
+            except:
+                error = "Authentication failed"
+    return render_template("volunteers_sign.html")
 
 @app.route('/volunteers2', methods=['GET', 'POST'])
 def volunteers2():
@@ -113,10 +118,10 @@ def volunteers2():
         password = request.form['password']
         try:
             login_session['user'] = auth.sign_in_with_email_and_password(email, password)
-            return redirect(url_for('home'))
+            return redirect(url_for('volunteers'))
         except:
             error = "Authentication failed"
-    return render_template("volunteers.html")
+    return render_template("volunteers_sign.html")
 
 @app.route('/chat', methods=['GET', 'POST'])
 def chat():
