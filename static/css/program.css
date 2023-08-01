@@ -48,3 +48,10 @@ a:hover {
   display: flex;
   justify-content: center;
 }
+
+iframe { margin: 30px; }
+
+#one{
+  text-align:center;
+
+}
