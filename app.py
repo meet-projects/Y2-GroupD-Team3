@@ -33,7 +33,7 @@ def signin():
             return redirect(url_for('home'))
         except:
             error = "Authentication failed"
-    return render_template("signin.html")
+    return render_template("op.html")
 
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -55,7 +55,7 @@ def signup():
             return redirect(url_for('home'))
         except:
             error = "Authentication failed"
-    return render_template("signup.html")
+    return render_template("op.html")
 
 @app.route('/signout')
 def signout():
