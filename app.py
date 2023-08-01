@@ -125,7 +125,7 @@ def volunteers2():
     return render_template("volunteers_sign.html")
 
 @app.route('/ques', methods=['GET', 'POST'])
-def chat():
+def ques():
     if request.method == 'POST':
         title = request.form['title']
         text = request.form['text']
@@ -155,10 +155,10 @@ def chat():
 
         return render_template("chat.html")
 
-@app.route('/qews', methods=['GET', 'POST'])
-def qwes():
-    twe = db.child("questions").get().val()
-        return render_template("quea.html", po=twe)
+# @app.route('/qews', methods=['GET', 'POST'])
+# def qwes():
+#     twe = db.child("questions").get().val()
+#         return render_template("quea.html", p=twe)
 
 #Code goes above here
 firebase = pyrebase.initialize_app(config)
