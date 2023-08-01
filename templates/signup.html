@@ -7,18 +7,15 @@
   <link rel="stylesheet" type="text/css" href="static/css/signin_up.css">
 
 </head>
-<body><form id="signup-form" method="POST" action="/garden">
+<body><form id="signup-form" method="POST" action="/signup">
     <label for="full-name">Full Name:</label>
     <input type="text" id="full-name" name="full_name" required>
 
     <label for="email">Email Address:</label>
     <input type="email" id="email" name="email" required>
 
-    <label for="phone">Phone Number:</label>
-    <input type="tel" id="phone" name="phone" required>
-
-    <label for="phone">Password:</label>
-    <input type="tel" id="phone" name="password" required>
+    <label for="password">Password:</label>
+    <input type="password" id="phone" name="password" minlength=6 required>
 
     <label for="disability">Disability:</label>
     <input type="text" id="disability" name="disability" required>

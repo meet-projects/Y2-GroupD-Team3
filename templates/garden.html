@@ -9,12 +9,18 @@
 <body>
   <h2>Sign Up - Program for integrate into gardening job</h2>
   <p>Please fill in the form below to join our program and explore job opportunities:</p>
-  <center><button onclick="Join()">Join</button></center>
+  {% if user == None %}
+     <center><a href="/signup"><button>JOIN</button></a></center>
+  {% else %}
 
-<script>
+    <center><a href="/"><button onclick="Join()">JOIN</button></a></center>
+     <script>
+  
 function Join() {
   alert(" An EMAIL was just sent to you!");
 }
-</script>
+
+</script> 
+{% endif %}
 </body>
 </html>

@@ -42,7 +42,6 @@ def signup():
     if request.method == 'POST':
         full_name = request.form['full_name']
         email = request.form['email']
-        phone = request.form['phone']
         password = request.form['password']
         disability = request.form['disability']
         experience = request.form['experience']
@@ -50,7 +49,7 @@ def signup():
         availability = request.form['availability']
         try:
             login_session['user'] = auth.create_user_with_email_and_password(email, password)
-            user = {"full_name" : full_name, "email" : email, "phone" : phone, "password" : password, "disability" : disability, "experience" : experience, "interests" : interests, "availability" : availability}
+            user = {"full_name" : full_name, "email" : email, "password" : password, "disability" : disability, "experience" : experience, "interests" : interests, "availability" : availability}
             UID = login_session['user']['localId']
             db.child("Users").child(UID).set(user)
             return redirect(url_for('home'))
@@ -66,11 +65,17 @@ def signout():
 
 @app.route('/co', methods=['GET', 'POST'])
 def co():
+
     return render_template("co.html")
 
 @app.route('/garden', methods=['GET', 'POST'])
 def garden():
-    return render_template("garden.html")
+    if 'user' in login_session:
+        user=login_session['user']
+    else:
+        user = None
+    text = "An Email just sent to you"
+    return render_template("garden.html", user=user, text=text)
 
 @app.route('/nitting', methods=['GET', 'POST'])
 def nitting():
