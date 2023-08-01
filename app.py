@@ -87,6 +87,12 @@ def nitting():
 
 @app.route('/volunteers', methods=['GET', 'POST'])
 def volunteers():
+    return render_template("volunteers.html")
+
+
+
+@app.route('/volunteers1', methods=['GET', 'POST'])
+def volunteers1():
     error = ""
     UID_user = login_session['user']['localId']
     if request.method == 'POST' and UID_user!=None:
@@ -100,10 +106,10 @@ def volunteers():
             user = {"full_name" : full_name, "email" : email, "password" : password, "program" : program, "availability" : availability}
             UID = login_session['user']['localId']
             db.child("Volunteers").child(UID).set(user)
-            return redirect(url_for('home'))
+            return redirect(url_for('volunteers'))
         except:
             error = "Authentication failed"
-    return render_template("volunteers.html")
+    return render_template("volunteers_sign.html")
 
 @app.route('/volunteers2', methods=['GET', 'POST'])
 def volunteers2():
@@ -116,7 +122,7 @@ def volunteers2():
             return redirect(url_for('home'))
         except:
             error = "Authentication failed"
-    return render_template("volunteers.html")
+    return render_template("volunteers_sign.html")
 
 @app.route('/chat', methods=['GET', 'POST'])
 def chat():
