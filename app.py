@@ -77,36 +77,32 @@ def garden():
         user = None
     return render_template("garden.html", user=user)
 
-@app.route('/nitting', methods=['GET', 'POST'])
+@app.route('/knitting', methods=['GET', 'POST'])
 def nitting():
     if 'user' in login_session:
         user=login_session['user']
     else:
         user = None
-    return render_template("nitting.html", user=user)
-
-@app.route('/volunteers', methods=['GET', 'POST'])
-def volunteers():
-    return render_template("volunteers.html")
-
+    return render_template("knitting.html", user=user)
 
 
 @app.route('/volunteers1', methods=['GET', 'POST'])
 def volunteers1():
     error = ""
-    UID_user = login_session['user']['localId']
-    if request.method == 'POST' and UID_user!=None:
-        full_name = request.form['full_name']
-        email = request.form['email']
-        password = request.form['password']
-        program = request.form['program']
-        availability = request.form['availability']
+    if request.method == 'POST':
+        UID_user = login_session['user']['localId']
+        if UID_user!=None:
+            full_name = request.form['full_name']
+            email = request.form['email']
+            password = request.form['password']
+            program = request.form['program']
+            availability = request.form['availability']
         try:
             login_session['user'] = auth.create_user_with_email_and_password(email, password)
             user = {"full_name" : full_name, "email" : email, "password" : password, "program" : program, "availability" : availability}
             UID = login_session['user']['localId']
             db.child("Volunteers").child(UID).set(user)
-            return redirect(url_for('volunteers'))
+            return render_template('volunteers_sign.html')
         except:
             error = "Authentication failed"
     return render_template("volunteers_sign.html")
@@ -124,41 +120,40 @@ def volunteers2():
             error = "Authentication failed"
     return render_template("volunteers_sign.html")
 
-@app.route('/ques', methods=['GET', 'POST'])
-def ques():
+@app.route('/comment/<string:i>', methods=['GET', 'POST'])
+def comment(i):
+
     if request.method == 'POST':
-        title = request.form['title']
         text = request.form['text']
         try:
-            que = {"Question": email, "text": fullna, "comments": []}
-            db.child("questions").push(que)
-            return render_template("chat.html")
+            db.child("questions").child(i).child("comment").push(text)
+            return render_template("comment.html", i=i)
         except:
-            return render_template("chat.html")
+            return render_template("comment.html", i=i)
     else:
 
-        return render_template("chat.html")
+        return render_template("comment.html", i=i)
 
 
-@app.route('/chat', methods=['GET', 'POST'])
-def chat():
+@app.route('/add_question', methods=['GET', 'POST'])
+def add_question():
     if request.method == 'POST':
         email = request.form['name']
         fullna = request.form['message']
         try:
             que = {"Question": email, "text": fullna, "comments": []}
             db.child("questions").push(que)
-            return render_template("chat.html")
+            return render_template("add_question.html")
         except:
-            return render_template("chat.html")
+            return render_template("add_question.html")
     else:
 
-        return render_template("chat.html")
+        return render_template("add_question.html")
 
-@app.route('/qews', methods=['GET', 'POST'])
-def qwes():
+@app.route('/questions', methods=['GET', 'POST'])
+def questions():
     twe = db.child("questions").get().val()
-    return render_template("quea.html", p=twe)
+    return render_template("questions.html", p=twe)
 
 #Code goes above here
 firebase = pyrebase.initialize_app(config)

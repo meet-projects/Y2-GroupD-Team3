@@ -89,11 +89,7 @@
 <body>
     <div class="form-container">
         <div class="form-heading">Add a comment</div>
-        <form method="post" action="/ques">
-            <div class="form-group">
-                <label for="fullname">title off comment</label>
-                <input type="text" id="fullname" name="title" required>
-            </div>
+        <form method="post" action="/comment/{{i}}">
 
             <div class="form-group">
                 <label for="message">text</label>

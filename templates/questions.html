@@ -66,35 +66,35 @@
 </head>
 
 <body>
-{%for i in po%}
+{%for i in p%}
     <div class="text-container">
-        <div class="section-heading">{{}}</div>
-        <div class="sub-heading">About Us</div>
+        <div class="section-heading">{{p[i]["Question"]}}</div>
+        <div class="sub-heading">{{p[i]["text"]}}</div>
+        
+
+        <div class="sub-heading">Comments</div>
         <div class="paragraph">
-            <span class="highlight">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Vivamus
-            tincidunt
-            odio eget nunc tincidunt, ac commodo lacus vulputate. Etiam eu arcu in purus varius ullamcorper.
-            Phasellus vel elit vel augue posuere fringilla at vel nisi. Duis tempus nibh et massa eleifend, ac
-            tincidunt velit vehicula. Nulla facilisi. Curabitur ultricies, metus quis dapibus facilisis, libero
-            sapien consequat justo, eu luctus metus elit sit amet mauris. Vivamus eget velit elit.
+            {%for k in p[i]["comment"]%}
+              {{p[i]["comment"][k]}}
+              <br>
+              <br>
+              <br>
+            {%endfor%}
         </div>
 
-        <div class="sub-heading">Our Services</div>
-        <div class="paragraph">
-            Nunc euismod arcu ut facilisis fringilla. Quisque facilisis eget neque vitae tincidunt. Donec
-            sagittis
-            risus vel metus luctus, sit amet aliquet quam bibendum. Nam luctus sem a metus consequat, quis
-            sollicitudin arcu fringilla. Proin bibendum vel odio at tristique. Fusce sit amet ex sit amet neque
-            ultrices vestibulum. Nullam eu nibh eget arcu convallis interdum.
-        </div>
-
-        <div class="quote">"The only limit to our realization of tomorrow will be our doubts of today." - Franklin D. Roosevelt</div>
 
         <div class="paragraph">
-            click to add a comment: <a class="link" href="/comment">add</a>
+            click to add a comment: <a class="link" href="/comment/{{i}}">add</a>
+
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
 {%endfor%}
+
 </body>
 
 </html>
