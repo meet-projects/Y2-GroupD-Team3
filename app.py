@@ -18,9 +18,25 @@ config = {
   "databaseURL": "https://group3-5e860-default-rtdb.europe-west1.firebasedatabase.app/"
 } 
 
+firebase = pyrebase.initialize_app(config)
+auth = firebase.auth()
+db = firebase.database()
+
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template("home.html")
+    if request.method == 'POST':
+        name = request.form['name']
+        filed = request.form['ava']
+        user = {"name": name, "feild": filed}
+        db.child("volunter").push(user)
+        return render_template("home.html")
+    else:
+        return render_template("home.html")
+
+@app.route('/volunteer', methods=['GET', 'POST'])
+def volunteer():
+    ro = db.child("volunter").get().val()
+    return render_template("volunteer.html", re=ro)    
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():

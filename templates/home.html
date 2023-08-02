@@ -217,27 +217,38 @@ function myFunction() {
 
   <!-- Contact -->
   <div class="w3-center w3-padding-64" id="contact">
-    <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Contact Us</span>
+    <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Sign up as volunteer</span>
   </div>
 
-  <form class="w3-container" action="/action_page.php" target="_blank">
+  <form class="w3-container" action="/">
     <div class="w3-section">
-      <label>Name</label>
-      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="Name" required>
+      <label>Full Name</label>
+      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="name" required>
     </div>
+    
     <div class="w3-section">
-      <label>Email</label>
-      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="Email" required>
+      <label for="availability">Select a field:</label>
+      <select id="availability" name="ava" required>
+        <option value="">Select One</option>
+        <option value="استجمام">استجمام</option>
+        <option value="المهنة وعالم العمل">المهنة وعالم العمل</option>
+        <option value="الرياضة واللياقة البدنية">الرياضة واللياقة البدنية</option>
+        <option value="اليقظة والتأمل والصور الموجهة">اليقظة والتأمل والصور الموجهة</option>
+        <option value="Nlp وتضخيم">Nlp وتضخيم</option>
+        <option value="تواصل وثيق">تواصل وثيق</option>
+        <option value="تغذية">تغذية</option>
+        <option value="الشؤون الجارية والخطاب الشخصي">الشؤون الجارية والخطاب الشخصي</option>
+        <option value="جولات افتراضية">جولات افتراضية</option>
+        <option value="فنون">فنون</option>
+        <option value="طبخ">طبخ</option>
+        <option value="الدراما والمسرح والمحو">الدراما والمسرح والمحو</option>
+        <option value="ترميم وتأجير">ترميم وتأجير</option>
+        <option value="خياطة">خياطة</option>
+        <option value="زراعة">زراعة</option>
+      </select>
     </div>
-    <div class="w3-section">
-      <label>Subject</label>
-      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" name="Subject" required>
-    </div>
-    <div class="w3-section">
-      <label>Message</label>
-      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" name="Message" required>
-    </div>
-    <button type="submit" class="w3-button w3-block w3-orange">Send</button>
+  
+    <button type="submit" class="w3-button w3-block w3-orange">Sign up</button>
   </form>
 
 </div>
