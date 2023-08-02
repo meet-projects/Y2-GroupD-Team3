@@ -61,14 +61,14 @@ def signup():
     error = ""
     if request.method == 'POST':
         full_name = request.form['full_name']
-        email = request.form['email']
-        password = request.form['password']
-        availability = request.form['availability']
+        # email = request.form['email']
+        # password = request.form['password']
+        availability = request.form['ava']
         try:
-            login_session['user'] = auth.create_user_with_email_and_password(email, password)
-            user = {"full_name" : full_name, "email" : email, "password" : password, "availability" : availability}
-            UID = login_session['user']['localId']
-            db.child("Users").child(UID).set(user)
+            # login_session['user'] = auth.create_user_with_email_and_password(email, password)
+            # user = {"full_name" : full_name, "email" : email, "password" : password, "availability" : availability}
+            user = {"full_name" : full_name, "availability" : availability}
+            db.child("Users").push(user)
             return redirect(url_for('home'))
         except:
             error = "Authentication failed"
