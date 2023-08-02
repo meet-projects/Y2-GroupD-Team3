@@ -33,8 +33,12 @@ def home():
     else:
         return render_template("home.html")
 
-@app.route('/volunteer', methods=['GET', 'POST'])
+@app.route('/admin', methods=['GET', 'POST'])
 def volunteer():
+    if not login_session['user']:
+        return redirect(url_for('signin'))
+    if not db.child('Users').child(login_session['user']['localId']).get().val().get('admin'):
+        return redirect(url_for('signin'))
     ro = db.child("volunter").get().val()
     return render_template("volunteer.html", re=ro)    
 
