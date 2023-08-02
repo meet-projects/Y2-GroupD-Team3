@@ -68,24 +68,24 @@
 
 <body>
   <div class="topnav" id="myTopnav">
-  <a href="/" class="active">Home</a>
+  <a href="/" class="active">رئيسية</a>
   <div class="dropdown">
-    <button class="dropbtn">Questions 
+    <button class="dropbtn">اسئلة 
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="/add_question">Ask a question</a>
-      <a href="/questions">View questions</a>
+      <a href="/add_question">اسأل سؤال</a>
+      <a href="/questions">اعرض الاسئلة</a>
     </div>
   </div> 
   <div class="dropdown">
-    <button class="dropbtn">vocotional trainings 
+    <button class="dropbtn">تدريب مهني 
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="/co">cooking</a>
-      <a href="/garden">gardenning</a>
-      <a href="/knitting">knitting</a>
+      <a href="/co">طبخ</a>
+      <a href="/garden">زراعة</a>
+      <a href="/knitting">خياطة</a>
     </div>
   </div> 
   <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
@@ -108,7 +108,7 @@ function myFunction() {
         <div class="sub-heading">{{p[i]["text"]}}</div>
         
 
-        <div class="sub-heading">Comments</div>
+        <div class="sub-heading">تعليق</div>
         <div class="paragraph">
             {%for k in p[i]["comment"]%}
               {{p[i]["comment"][k]}}
@@ -120,7 +120,7 @@ function myFunction() {
 
 
         <div class="paragraph">
-            click to add a comment: <a class="link" href="/comment/{{i}}">add</a>
+            اكبس لكتابة تعليق : <a class="link" href="/comment/{{i}}">اضف</a>
 
         </div>
     </div>

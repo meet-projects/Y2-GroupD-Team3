@@ -91,24 +91,24 @@
 
 
   <div class="topnav" id="myTopnav">
-  <a href="/" class="active">Home</a>
+  <a href="/" class="active">رئيسية</a>
   <div class="dropdown">
-    <button class="dropbtn">Questions 
+    <button class="dropbtn">اسئلة 
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="/add_question">Ask a question</a>
-      <a href="/questions">View questions</a>
+      <a href="/add_question">اسأل سؤال</a>
+      <a href="/questions">اعرض الاسئلة</a>
     </div>
   </div> 
   <div class="dropdown">
-    <button class="dropbtn">vocotional trainings 
+    <button class="dropbtn">تدريب مهني 
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="/co">cooking</a>
-      <a href="/garden">gardenning</a>
-      <a href="/knitting">knitting</a>
+      <a href="/co">طبخ</a>
+      <a href="/garden">زراعة</a>
+      <a href="/knitting">خياطة</a>
     </div>
   </div> 
   <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
@@ -127,22 +127,22 @@ function myFunction() {
 
 
     <div class="form-container" style="margin-top: 5%;">
-        <div class="form-heading">Add a question</div>
+        <div class="form-heading">اسأل سؤال</div>
         <form method="post" action="/add_question">
             <div class="form-group">
-                <label for="fullname">name of question</label>
+                <label for="fullname">موضوع السؤال</label>
                 <input type="text" id="fullname" name="name" required>
             </div>
 
             <div class="form-group">
-                <label for="message">specify the problem</label>
+                <label for="message">ماهي المشكلة</label>
                 <input  id="message" name="message" rows="4">
             </div>
 
-            <button type="submit" class="submit-btn">Submit</button>
+            <button type="submit" class="submit-btn">سلم</button>
 
             <div class="disclaimer">
-                By submitting this form, you are adding a question.
+                عنما تسلم الملف سيعرض سؤالك للمستخدمين
             </div>
         </form>
     </div>
